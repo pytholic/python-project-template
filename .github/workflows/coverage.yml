@@ -1,7 +1,17 @@
-# name: Coverage Report
+name: Coverage Report
 
-# on:
-#   workflow_run:
-#     workflows: [Run Tests]
-#     types:
-#       - completed
+on:
+  workflow_run:
+    workflows: [Run Tests]
+    types:
+      - completed
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml
