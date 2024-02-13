@@ -1,20 +1,13 @@
-import pytest
-
 from stringutils import capitalize_string, reverse_string
 
 
-@pytest.fixture
-def input_strings():
-    return ["hello", "Adios", "BYe"]
+def test_reverse_string():
+    assert reverse_string("hello") == "olleh"
+    assert reverse_string("Adios") == "soidA"
+    assert reverse_string("BYe") == "eYB"
 
 
-def test_reverse_string(input_strings):
-    for input_str in input_strings:
-        expected_output = input_str[::-1]
-        assert reverse_string(input_str) == expected_output
-
-
-def test_capitalize_string(input_strings):
-    for input_str in input_strings:
-        expected_output = input_str.capitalize()
-        assert capitalize_string(input_str) == expected_output
+def test_capitalize_string():
+    assert capitalize_string("hello") == "HELLO"
+    assert capitalize_string("Adios") == "ADIOS"
+    assert capitalize_string("BYe") == "BYE"
