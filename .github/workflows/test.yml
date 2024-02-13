@@ -1,4 +1,4 @@
-name: Python CI
+name: Run Tests
 
 on:
   push:
@@ -25,4 +25,4 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest
+        pytest --doctest-modules --junitxml=junit/test-results.xml
