@@ -11,6 +11,7 @@ jobs:
 
     env:
       PYTHON_VERSION: 3.11
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
     - name: Checkout repository
@@ -35,3 +36,9 @@ jobs:
       with:
         name: pytest-results-${{ env.PYTHON_VERSION }}
         path: junit/test-results-${{ env.PYTHON_VERSION }}.xml
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4-beta
+      with:
+        flags: smart-tests
+        verbose: true

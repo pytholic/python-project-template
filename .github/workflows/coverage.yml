@@ -1,19 +1,19 @@
-name: Coverage Report
+# name: Coverage Report
 
-on:
-  workflow_run:
-    workflows: [Run Tests]
-    types:
-      - completed
+# on:
+#   workflow_run:
+#     workflows: [Run Tests]
+#     types:
+#       - completed
 
-jobs:
-  coverage:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Upload coverage to Codecov
-        run: |
-          # Replace `linux` below with the appropriate OS
-          # Options are `alpine`, `linux`, `macos`, `windows`
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
-          chmod +x codecov
-          ./codecov -t ${{ secrets.CODECOV_TOKEN }}
+# jobs:
+#   coverage:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Upload coverage to Codecov
+#         uses: codecov/codecov-action@v4-beta
+#         with:
+#           flags: smart-tests
+#           verbose: true
+#         env:
+#           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
