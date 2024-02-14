@@ -1,0 +1,28 @@
+[tool.interrogate]
+fail-under=100
+exclude = ["setup.py", "tests", "build", "insight_engine/cxr_triage"]
+ignore-module = true
+ignore-init-method = true
+ignore-regex = ["^_execute_callbacks"]
+verbose = 2
+omit-covered-files = true
+
+[tool.isort]
+line_length = 99
+profile = "black"
+filter_files = true
+
+[tool.flake8]
+max_line_length = 99
+show_source = true
+format = "pylint"
+ignore = ["W503"]
+extend_ignore = ["E203"]
+exclude = [".git", "__pycache__"]
+
+[tool.pytest]
+testpaths = ["tests/"]
+log_cli = true
+markers = ["slow"]
+addopts = ["--durations=0", "--strict-markers", "--doctest-modules"]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::UserWarning"]

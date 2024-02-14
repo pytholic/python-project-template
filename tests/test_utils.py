@@ -1,4 +1,4 @@
-from stringutils import capitalize_string, reverse_string
+from stringutils.utils import capitalize_string, reverse_string
 
 
 def test_reverse_string():

@@ -14,39 +14,39 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup Python 
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements/check.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements/check.txt
 
-    - name: Run tests
-      run: |
-        pytest --cov stringutils --cov-report=xml --tb=line --doctest-modules --junitxml=junit/test-results-${{ env.PYTHON_VERSION }}.xml
+      - name: Run tests
+        run: |
+          pytest --cov stringutils --cov-report=xml --tb=line --doctest-modules
+          --junitxml=junit/test-results-${{ env.PYTHON_VERSION }}.xml
 
-    - name: Upload test results
-      uses: actions/upload-artifact@v4
-      with:
-        name: pytest-results-${{ env.PYTHON_VERSION }}
-        path: junit/test-results-${{ env.PYTHON_VERSION }}.xml
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-results-${{ env.PYTHON_VERSION }}
+          path: junit/test-results-${{ env.PYTHON_VERSION }}.xml
 
-
-    - name: Upload coverage to Codecov
-      # run: |
-      #   # Replace `linux` below with the appropriate OS
-      #   # Options are `alpine`, `linux`, `macos`, `windows`
-      #   curl -Os https://uploader.codecov.io/latest/linux/codecov
-      #   chmod +x codecov
-      #   ./codecov -t ${{ env.CODECOV_TOKEN }}
-      uses: codecov/codecov-action@v3
-      with:
+      - name: Upload coverage to Codecov
+        # run: |
+        #   # Replace `linux` below with the appropriate OS
+        #   # Options are `alpine`, `linux`, `macos`, `windows`
+        #   curl -Os https://uploader.codecov.io/latest/linux/codecov
+        #   chmod +x codecov
+        #   ./codecov -t ${{ env.CODECOV_TOKEN }}
+        uses: codecov/codecov-action@v3
+        with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
           flags: smart-tests
