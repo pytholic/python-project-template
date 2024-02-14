@@ -28,7 +28,7 @@ jobs:
           pip install -r requirements/check.txt
 
       - name: Run tests
-        run: |
+        run: >
           pytest
           --cov stringutils
           --cov-report=xml
