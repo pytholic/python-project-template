@@ -29,7 +29,11 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --cov stringutils --cov-report=xml --tb=line --doctest-modules
+          pytest
+          --cov stringutils
+          --cov-report=xml
+          --tb=line
+          --doctest-modules
           --junitxml=junit/test-results-${{ env.PYTHON_VERSION }}.xml
 
       - name: Upload test results
