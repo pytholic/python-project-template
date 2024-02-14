@@ -29,7 +29,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest --cov . --cov-report=xml --tb=line --doctest-modules --junitxml=junit/test-results-${{ env.PYTHON_VERSION }}.xml
+        pytest --cov stringutils --cov-report=xml --tb=line --doctest-modules --junitxml=junit/test-results-${{ env.PYTHON_VERSION }}.xml
 
     - name: Upload test results
       uses: actions/upload-artifact@v4
