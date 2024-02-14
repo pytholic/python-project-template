@@ -37,8 +37,17 @@ jobs:
         name: pytest-results-${{ env.PYTHON_VERSION }}
         path: junit/test-results-${{ env.PYTHON_VERSION }}.xml
 
+
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4-beta
+      # run: |
+      #   # Replace `linux` below with the appropriate OS
+      #   # Options are `alpine`, `linux`, `macos`, `windows`
+      #   curl -Os https://uploader.codecov.io/latest/linux/codecov
+      #   chmod +x codecov
+      #   ./codecov -t ${{ env.CODECOV_TOKEN }}
+      uses: codecov/codecov-action@v3
       with:
-        flags: smart-tests
-        verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml
+          flags: smart-tests
+          verbose: true
