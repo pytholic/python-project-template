@@ -14,16 +14,7 @@ repos:
       - id: check-added-large-files
       - id: no-commit-to-branch
         args:
-          [
-            "--branch",
-            "main",
-            "--branch",
-            "master",
-            "--branch",
-            "develop",
-            "--branch",
-            "gh-pages",
-          ]
+          ["--branch", "main", "--branch", "develop", "--branch", "gh-pages"]
 
   # python code formatting
   - repo: https://github.com/psf/black
