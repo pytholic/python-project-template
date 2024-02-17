@@ -16,8 +16,8 @@ def capitalize_string(input_str: str) -> str:
 
 
 def add_list_elements(input_list1: T, input_list2: T) -> T:
-    """This functions take two string lists and performs element-wise
-    concatenation. Lists must have the same shape.
+    """This functions take two string lists and performs element-wise concatenation. Lists must
+    have the same shape.
 
     Parameters
     ----------
@@ -39,6 +39,5 @@ def add_list_elements(input_list1: T, input_list2: T) -> T:
     Reference
     -----
     .. [1] https://numpy.org/doc/stable/reference/generated/numpy.char.add.html#numpy.char.add
-
     """
     return list(np.char.add(input_list1, input_list2))
