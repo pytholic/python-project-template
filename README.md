@@ -20,6 +20,11 @@ I included requirements i.e. `base.txt` and `check.txt`. I added them under the 
 
 I added some tests for the functions to verify if they are working well. I am using `Pytest` for that.
 
+```
+pytest --cov stringutils --cov-report=term-missing --tb=line
+pytest --cov . --cov-report=xml --tb=line
+```
+
 ### Note
 
 - We can manually import our library functions for tests using `__init__.py`.
@@ -32,6 +37,12 @@ Next, I added `pre-commit` hooks to make sure that my code is in compliance with
 ```
 pip install pre-commit
 pre-commit install
+```
+
+It will work with each commit. To run manually:
+
+```
+pre-commit run --all-files
 ```
 
 ## GitHub Workflows
