@@ -29,6 +29,11 @@ I added some tests for the functions to verify if they are working well. I am us
 
 Next, I added `pre-commit` hooks to make sure that my code is in compliance with the best python practices.
 
+```
+pip install pre-commit
+pre-commit install
+```
+
 ## GitHub Workflows
 
 We have two workflows i.e. `test.yml` to test our code and `lint.yml` to apply `pre-commit` hooks upon `push` and `pull-requests` to the `main/master` branch. I am also using `Codecov` action to upload test coverage report. Check the reference [link](https://docs.codecov.com/docs/quick-start) for more details.
