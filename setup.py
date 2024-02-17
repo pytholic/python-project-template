@@ -1,6 +1,8 @@
 from setuptools import find_packages, setup
 
-__REQUIREMENTS__ = ["check"]
+__REQUIREMENTS__ = ["base", "check"]
+__PACKAGE_NAME__ = "stringutils"
+__VERSION__ = "0.1.0"
 
 
 def read_requirements(req_path):
@@ -9,16 +11,16 @@ def read_requirements(req_path):
 
 
 if __name__ == "__main__":
-    requirements = dict()
+    requirements = {}
     for req in __REQUIREMENTS__:
         requirements[req] = read_requirements(f"requirements/{req}.txt")
 
     setup(
-        name="stringutils",
-        version="0.1.0",
+        name=__PACKAGE_NAME__,
+        version=__VERSION__,
         packages=find_packages(exclude=["tests"]),
-        install_requires=requirements["check"],
+        install_requires=requirements["base"],
         python_requires=">=3.8",
-        tests_require=["pytest"],
+        tests_require=requirements["check"],
         setup_requires=["pytest-runner"],
     )
