@@ -33,8 +33,8 @@ def add_list_elements(input_list1: T, input_list2: T) -> T:
 
     Notes
     -----
-    This function originally works with both lists and arrays. However output is
-    ndarray. To keep things consistent, I am convert output array to a list.
+    This function originally works with both lists and arrays. However, output is
+    ndarray. To keep things consistent, I converted output array to a list.
 
     Reference
     -----
