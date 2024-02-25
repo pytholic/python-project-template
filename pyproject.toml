@@ -1,6 +1,6 @@
 [tool.interrogate]
 fail-under=100
-exclude = ["setup.py", "tests", "build"]
+exclude = ["setup.py", "tests", "build", "dist"]
 ignore-module = true
 ignore-init-method = true
 ignore-regex = ["^_execute_callbacks"]

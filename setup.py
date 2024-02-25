@@ -1,3 +1,5 @@
+import os
+
 from setuptools import find_packages, setup
 
 __REQUIREMENTS__ = ["base", "check"]
@@ -13,14 +15,23 @@ def read_requirements(req_path):
 if __name__ == "__main__":
     requirements = {}
     for req in __REQUIREMENTS__:
-        requirements[req] = read_requirements(f"requirements/{req}.txt")
+        req_path = f"requirements/{req}.txt"
+        if not os.path.exists(req_path):
+            raise FileNotFoundError(f"File not found: {req_path}")
+        requirements[req] = read_requirements(req_path)
+    print(repr(requirements))
+    # requirements = {}
+    # for req in __REQUIREMENTS__:
+    #     requirements[req] = read_requirements(f"requirements/{req}.txt")
 
     setup(
         name=__PACKAGE_NAME__,
         version=__VERSION__,
-        packages=find_packages(exclude=["tests"]),
+        packages=find_packages(exclude=["tests", "README.md"]),
         install_requires=requirements["base"],
         python_requires=">=3.8",
         tests_require=requirements["check"],
         setup_requires=["pytest-runner"],
+        long_description=open("README.md").read(),
+        long_description_content_type="text/markdown",
     )
