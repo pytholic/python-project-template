@@ -1,6 +1,6 @@
 [tool.interrogate]
 fail-under=100
-exclude = ["setup.py", "tests", "build", "insight_engine/cxr_triage"]
+exclude = ["setup.py", "tests", "build"]
 ignore-module = true
 ignore-init-method = true
 ignore-regex = ["^_execute_callbacks"]
@@ -28,3 +28,9 @@ log_cli = true
 markers = ["slow"]
 addopts = ["--durations=0", "--strict-markers", "--doctest-modules"]
 filterwarnings = ["ignore::DeprecationWarning", "ignore::UserWarning"]
+
+[tool.pytest.ini_options]
+markers = [
+    "unit: custom unit test marker",
+    "slow: slow tests marker"
+]

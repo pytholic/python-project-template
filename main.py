@@ -1,3 +1,8 @@
+"""Sample example to test the package.
+
+Created by @pytholic on 2024.02.25
+"""
+
 from stringutils.utils import (
     add_list_elements,
     capitalize_string,

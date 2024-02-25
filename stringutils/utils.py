@@ -1,3 +1,8 @@
+"""Package utility functions.
+
+Created by @pytholic on 2024.02.21
+"""
+
 from typing import List, TypeVar
 
 import numpy as np
