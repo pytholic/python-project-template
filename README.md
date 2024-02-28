@@ -51,4 +51,24 @@ We have two workflows i.e. `test.yml` to test our code and `lint.yml` to apply `
 
 ## Packaging
 
-...
+Create `~HOME/pypirc` file and add credentials in it:
+
+```
+[pypi]
+  username = __token__
+  password = <api-token>
+```
+
+Build the package.
+
+```
+pip install build
+python -m build
+```
+
+Upload the package.
+
+```
+twine check dist/*
+twine upload dist/*
+```
