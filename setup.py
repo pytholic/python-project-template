@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 __REQUIREMENTS__ = ["base", "check"]
 __PACKAGE_NAME__ = "pytholic-stringutils"
-__VERSION__ = "0.1.1"
+__VERSION__ = "0.1.2"
 
 
 def read_requirements(req_path):
