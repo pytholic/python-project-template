@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 __REQUIREMENTS__ = ["base", "check"]
 __PACKAGE_NAME__ = "pytholic-stringutils"
-__VERSION__ = "0.1.2"
+__VERSION__ = "0.1.3"
 
 
 def read_requirements(req_path):
@@ -15,7 +15,8 @@ def read_requirements(req_path):
 if __name__ == "__main__":
     requirements = {}
     for req in __REQUIREMENTS__:
-        req_path = f"/Users/lunit_haseebraja/Developer/personal/python/template-project/requirements/{req}.txt"
+        req_path = f"requirements/{req}.txt"
+        print(req_path)
         if not os.path.exists(req_path):
             raise FileNotFoundError(f"File not found: {req_path}")
         requirements[req] = read_requirements(req_path)

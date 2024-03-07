@@ -53,6 +53,8 @@ We have two workflows i.e. `test.yml` to test our code and `lint.yml` to apply `
 
 - Create `setup.py`.
 
+  - **Note:** If you face issues with `requirements` paths, create a `MANIFEST.in` file like mine.
+
 - Create account on pypi, build and upload.
 
   - Create `~HOME/pypirc` file and add credentials in it:
@@ -76,5 +78,5 @@ We have two workflows i.e. `test.yml` to test our code and `lint.yml` to apply `
 
   ```
   twine check dist/*
-  twine
+  twine upload dist/*
   ```
