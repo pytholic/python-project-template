@@ -28,6 +28,6 @@ if __name__ == "__main__":
         python_requires=">=3.8",
         tests_require=requirements["check"],
         setup_requires=["pytest-runner"],
-        long_description=open("README.md").read(),
+        long_description=open("README_PACKAGE.md").read(),
         long_description_content_type="text/markdown",
     )

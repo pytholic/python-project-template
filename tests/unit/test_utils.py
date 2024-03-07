@@ -8,12 +8,6 @@ from stringutils.utils import (
 
 
 @pytest.fixture
-def input_strings():
-    _strings = ["hello", "Adios", "BYe"]
-    return _strings
-
-
-@pytest.fixture
 def input_lists():
     _list1 = ["Big", "Good", "Light"]
     _list2 = ["Small", "Bad", "Heavy"]

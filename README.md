@@ -1,6 +1,6 @@
 # Description
 
-I created a simple `stringutils` library with three basic functions.
+A python template project following modern practices. We will work with a simple `stringutils` library with three basic functions.
 
 # Steps
 
@@ -51,24 +51,30 @@ We have two workflows i.e. `test.yml` to test our code and `lint.yml` to apply `
 
 ## Packaging
 
-Create `~HOME/pypirc` file and add credentials in it:
+- Create `setup.py`.
 
-```
-[pypi]
-  username = __token__
-  password = <api-token>
-```
+- Create account on pypi, build and upload.
 
-Build the package.
+  - Create `~HOME/pypirc` file and add credentials in it:
 
-```
-pip install build
-python -m build
-```
+  ```
+  [pypi]
+    username = __token__
+    password = <api-token>
 
-Upload the package.
+  ```
 
-```
-twine check dist/*
-twine upload dist/*
-```
+  - Build the package.
+
+  ```
+  pip install build
+  python -m build
+
+  ```
+
+  - Upload the package.
+
+  ```
+  twine check dist/*
+  twine
+  ```
