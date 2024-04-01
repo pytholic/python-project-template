@@ -22,6 +22,10 @@ ignore = ["W503"]
 extend_ignore = ["E203"]
 exclude = [".git", "__pycache__"]
 
+[tool.ruff]
+line-length = 99
+exclude = [".git", "__pycache__"]
+
 [tool.pytest]
 testpaths = ["tests/"]
 log_cli = true
